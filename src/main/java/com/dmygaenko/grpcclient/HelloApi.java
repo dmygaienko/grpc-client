@@ -1,6 +1,5 @@
 package com.dmygaenko.grpcclient;
 
-import com.dmygaenko.grpcapi.HelloResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +19,11 @@ public class HelloApi {
     public String hello(@RequestParam String firstName, @RequestParam String lastName) {
         log.info("Hello Api is called with firstName - {}, lastName - {}", firstName, lastName);
         return helloClient.hello(firstName, lastName);
+    }
+
+    @GetMapping(path = "/transfer")
+    public String transfer(@RequestParam String firstName, @RequestParam String lastName) {
+        log.info("Transfer Api is called with firstName - {}, lastName - {}", firstName, lastName);
+        return helloClient.transfer(firstName, lastName);
     }
 }
